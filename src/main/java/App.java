@@ -1,5 +1,3 @@
-import com.genesis.exams.happyslot.model.HappySpinResult;
-import com.genesis.exams.happyslot.tool.HappySlotMachine;
 import com.genesis.exams.happyslot.tool.HappySlotMachineUtil;
 import com.genesis.exams.slot.*;
 
@@ -40,16 +38,18 @@ public class App {
 
         for (int i = 0; i < wordings.length; i++) {
             long waitSec = 1000;
-            if (i == 1) {
-                wordings[i] += bet; //your bet is 100
-                waitSec = 2000;
-
-            } else if (i == 6) {
-                wordings[i] += spinResult.toString();
-
-            } else if (i == 7) {
-                wordings[i] += payout; //your payout is ???
-                waitSec = 3000;
+            switch (i) {
+                case 1:
+                    wordings[i] += bet; //your bet is 100
+                    waitSec = 2000;
+                    break;
+                case 6:
+                    wordings[i] += spinResult.toString();
+                    break;
+                case 7:
+                    wordings[i] += payout; //your payout is ???
+                    waitSec = 0;
+                    break;
             }
             System.out.println(wordings[i]);
             try {
