@@ -26,10 +26,10 @@ public class HappySlotMachineUtil {
     }
 
     public static SlotMachine getSlotMachine(int reelNumber) {
-        return thisUtil.initlotMachine(reelNumber);
+        return thisUtil.initSlotMachine(reelNumber);
     }
 
-    private SlotMachine initlotMachine(int reelNumber) {
+    private SlotMachine initSlotMachine(int reelNumber) {
         HappySlotMachine happySlotMachine;
 
         Reel[] reels = this.getHappyReels(reelNumber);
@@ -73,6 +73,7 @@ public class HappySlotMachineUtil {
             for (HappySymbol.SymbolWeight symbol : HappySymbol.SymbolWeight.values()) {
                 if (symbol.toString().equals(symbolName)) {
                     list.add(new HappySymbol(symbolName, symbol.getWeight()));
+                    break;
                 }
             }
         }
